@@ -8,10 +8,30 @@ import re
 from typing import List, Union, Optional
 
 
-# ---------- TEXT FORMATTER ----------
+# ============================================================
+# 📌 TEXT FORMATTER
+# ============================================================
 class TextFormatter:
-    """Formatea texto estilo markdown y links clicables."""
+    """
+    Formats text with Markdown-like syntax and clickable links for Flet.
+
+    Supported features:
+        - Headings: "#", "##", "###"
+        - Lists: "- "
+        - Bold: **text**
+        - Italic: _text_
+        - Inline code: `code`
+        - Markdown-style links: [Text](https://url)
+        - Direct URLs: https://example.com
+    """
+
     def __init__(self, color=Colors.WHITE):
+        """
+        Initialize the text formatter.
+
+        Args:
+            color (Colors): Default color for normal text.
+        """
         self.color = color
         self.markdown_link_pattern = r"\[(.*?)\]\((https?://[^\s]+)\)"
         self.link_pattern = r"https?://[^\s]+"
@@ -20,6 +40,15 @@ class TextFormatter:
         self.code_pattern = r"`(.*?)`"
 
     def format(self, text: str) -> Text:
+        """
+        Convert a raw string into a styled Flet `Text` object.
+
+        Args:
+            text (str): Input string.
+
+        Returns:
+            Text: Flet text object with styles applied.
+        """
         s = text.strip()
         if s.startswith("### "):
             return Text(s[4:], size=16, weight=FontWeight.W_700, color=Colors.AMBER)
@@ -32,6 +61,15 @@ class TextFormatter:
         return Text(spans=self._format_spans(text))
 
     def _format_spans(self, text: str) -> List[TextSpan]:
+        """
+        Parse inline Markdown patterns and return a list of text spans.
+
+        Args:
+            text (str): Input text to parse.
+
+        Returns:
+            List[TextSpan]: A list of styled text spans.
+        """
         spans: List[TextSpan] = []
         idx = 0
         while idx < len(text):
@@ -54,12 +92,12 @@ class TextFormatter:
             if start > idx:
                 spans.append(TextSpan(text=text[idx:start], style=TextStyle(color=self.color)))
 
-            if first == md_link:  # [Texto](url)
+            if first == md_link:  # [Text](url)
                 content, url = first.groups()
                 spans.append(TextSpan(text=content, url=url,
                                       style=TextStyle(color=Colors.BLUE_200,
                                                       decoration=TextDecoration.UNDERLINE)))
-            elif first == link:  # URL directa
+            elif first == link:  # Direct URL
                 content = first.group(0)
                 spans.append(TextSpan(text=content, url=content,
                                       style=TextStyle(color=Colors.BLUE_200,
@@ -86,9 +124,15 @@ class TextFormatter:
         return spans
 
 
-# ---------- TEXT BUBBLE ----------
+# ============================================================
+# 📌 ANIMATED TEXT BUBBLE
+# ============================================================
 class AnimatedTextBubble(Container):
-    """Burbuja animada con soporte de markdown, links y bloques de código."""
+    """
+    Animated text bubble with Markdown-like formatting,
+    clickable links, and inline code block support.
+    """
+
     def __init__(
         self,
         texts: Union[str, List[str]],
@@ -97,6 +141,16 @@ class AnimatedTextBubble(Container):
         bgcolor: Colors = Colors.GREY_800,
         on_copied: Optional[callable] = None,
     ):
+        """
+        Initialize the animated text bubble.
+
+        Args:
+            texts (str | List[str]): Text or list of texts to display.
+            speed (int): Typing speed (characters per second).
+            pause (float): Optional pause (in seconds) after finishing typing.
+            bgcolor (Colors): Background color of the bubble.
+            on_copied (callable, optional): Callback triggered when text is copied.
+        """
         super().__init__()
         self.texts = texts if isinstance(texts, list) else [texts]
         self.speed = speed
@@ -104,7 +158,7 @@ class AnimatedTextBubble(Container):
         self.running = False
         self.on_copied = on_copied
 
-        # Apariencia
+        # Appearance
         self.bgcolor = bgcolor
         self.border_radius = 15
         self.Text_content = "\n".join(self.texts)
@@ -113,16 +167,22 @@ class AnimatedTextBubble(Container):
         self.padding = 10
         self.ink = True
 
-        # Contenido
+        # Content
         self.Text_column = Column(spacing=4, tight=False)
         self.content = self.Text_column
         self.formatter = TextFormatter(color=Colors.WHITE)
         self.border = border.all(color=Colors.with_opacity(0.5, self.bgcolor), width=2)
 
-        # Acción
+        # Copy to clipboard on long press
         self.on_long_press = self.copy_to_clipboard
 
     def copy_to_clipboard(self, e=None):
+        """
+        Copy the bubble's content to clipboard and show a snackbar.
+
+        Args:
+            e: Flet event (optional).
+        """
         clean = re.sub(r"[*#`]", "", self.Text_content)
         self.page.set_clipboard(clean)
         self.page.overlay.append(SnackBar(content=Text("📋 Copied to clipboard"), open=True))
@@ -131,13 +191,25 @@ class AnimatedTextBubble(Container):
         self.page.update()
 
     def did_mount(self):
+        """
+        Start the typing animation when the widget is mounted.
+        """
         self.running = True
         self.page.run_task(self._type_loop)
 
     def will_unmount(self):
+        """
+        Stop the typing animation when the widget is unmounted.
+        """
         self.running = False
 
     async def _type_text(self, full_text: str):
+        """
+        Animate the typing effect for a single text block.
+
+        Args:
+            full_text (str): Full text to animate.
+        """
         self.Text_column.controls.clear()
         self.update()
 
@@ -147,7 +219,7 @@ class AnimatedTextBubble(Container):
         for line in full_text.splitlines():
             stripped = line.strip()
 
-            # Separador
+            # Separator line ("---")
             if not in_code_block and stripped == "---":
                 self.Text_column.controls.append(
                     Divider(height=1, color=Colors.GREY_600, opacity=0.5)
@@ -155,7 +227,7 @@ class AnimatedTextBubble(Container):
                 self.update()
                 continue
 
-            # Bloques de código
+            # Code block toggle
             if stripped.startswith("```"):
                 in_code_block = not in_code_block
                 if in_code_block:
@@ -174,6 +246,7 @@ class AnimatedTextBubble(Container):
                     self.update()
                 continue
 
+            # Inside code block
             if in_code_block:
                 for ch in line + "\n":
                     code_accum += ch
@@ -189,7 +262,7 @@ class AnimatedTextBubble(Container):
                     await asyncio.sleep(1 / self.speed)
                 continue
 
-            # Texto normal
+            # Normal text typing
             partial_text = ""
             self.Text_column.controls.append(Text(""))
             for ch in line:
@@ -202,6 +275,9 @@ class AnimatedTextBubble(Container):
             await asyncio.sleep(self.pause)
 
     async def _type_loop(self):
+        """
+        Main loop to type multiple texts sequentially.
+        """
         for text in self.texts:
             if not self.running:
                 break
