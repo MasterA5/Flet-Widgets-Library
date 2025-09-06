@@ -1,4 +1,4 @@
-from FletWidgetsLibrary import TextFader, TypeWriter, AnimatedTextBubble
+from FletWidgetsLibrary.AnimatedComponents import TextFader, TypeWriter, AnimatedTextBubble
 from flet import *
 
 # <-------EXAMPLE DEMO------->
@@ -72,6 +72,24 @@ def main(page:Page):
         ),
         Divider(
             color=Colors.BLUE,
+            height=10
+        ),
+        Text(
+            value="This Is A Type Writer Text Animated With Loop",
+            color=Colors.GREEN
+        ),
+        TypeWriter(
+            texts=[
+                "Hello Welcome To Flet This Is A Type Writer Animated", 
+                "But This Is A Second Part For The Type Writer Content With Loop"
+            ],
+            speed=30,
+            size=40,
+            color=Colors.GREEN,
+            loop=True
+        ),
+        Divider(
+            color=Colors.GREEN,
             height=10
         ),
         Text(

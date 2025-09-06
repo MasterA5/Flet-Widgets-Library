@@ -102,7 +102,7 @@ TypeWriter(
 
 ## 📝 Examples
 
-Check out the `examples` directory for complete usage examples of each component.
+Check out the `Demo-Example.py` file for complete usage examples of each component.
 
 ## 🤝 Contributing
 
