@@ -92,28 +92,28 @@ class TextFormatter:
             if start > idx:
                 spans.append(TextSpan(text=text[idx:start], style=TextStyle(color=self.color)))
 
-            if first == md_link:  # [Text](url)
+            if first == md_link:  # <- [Text](url)
                 content, url = first.groups()
                 spans.append(TextSpan(text=content, url=url,
                                       style=TextStyle(color=Colors.BLUE_200,
                                                       decoration=TextDecoration.UNDERLINE)))
-            elif first == link:  # Direct URL
+            elif first == link:  # <- Direct URL
                 content = first.group(0)
                 spans.append(TextSpan(text=content, url=content,
                                       style=TextStyle(color=Colors.BLUE_200,
                                                       decoration=TextDecoration.UNDERLINE)))
-            elif first == code:  # `inline code`
+            elif first == code:  # <- `inline code`
                 content = first.group(1)
                 spans.append(TextSpan(text=content,
                                       style=TextStyle(color=Colors.AMBER_200,
                                                       font_family="monospace",
                                                       bgcolor=Colors.GREY_800)))
-            elif first == bold:  # **bold**
+            elif first == bold:  # <- **bold**
                 content = first.group(1)
                 spans.append(TextSpan(text=content,
                                       style=TextStyle(color=self.color,
                                                       weight=FontWeight.BOLD)))
-            elif first == italic:  # _italic_
+            elif first == italic:  # <- _italic_
                 content = first.group(1)
                 spans.append(TextSpan(text=content,
                                       style=TextStyle(color=self.color,

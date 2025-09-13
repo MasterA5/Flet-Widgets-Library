@@ -1,4 +1,4 @@
-from FletWidgetsLibrary.AnimatedComponents import TextFader, TypeWriter, AnimatedTextBubble
+from FletWidgetsLibrary.AnimatedComponents import TextFader, TypeWriter, AnimatedTextBubble, SplitText
 from flet import *
 
 # <-------EXAMPLE DEMO------->
@@ -29,6 +29,46 @@ def main(page:Page):
 
 
     page.add(
+        Text(
+            value="SplitText Without Loop",
+            color=Colors.CYAN,
+            size=30,
+            weight="bold"
+        ),
+        SplitText(
+            texts=["Hello World", "Offset Animation"],
+            speed=0.1,
+            pause=1.5,
+            loop=False,
+            size=32,
+            color=Colors.CYAN,
+            bold=True,
+            direction="bottom"
+        ),
+        Divider(
+            color=Colors.CYAN,
+            height=10
+        ),
+        Text(
+            value="SplitText With Loop",
+            color=Colors.BROWN,
+            size=30,
+            weight="bold"
+        ),
+        SplitText(
+            texts=["Hello World", "Offset Animation With Loop"],
+            speed=0.1,
+            pause=1.5,
+            loop=True,
+            size=32,
+            color=Colors.BROWN,
+            bold=True,
+            direction="bottom"
+        ),
+        Divider(
+            color=Colors.BROWN,
+            height=10
+        ),
         Text(
             value="This Is A Fade Text With Out Loop Animation And Permanent Opacity",
             color=Colors.AMBER
