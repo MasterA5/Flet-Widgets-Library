@@ -9,6 +9,7 @@ A collection of custom, animated UI components for Flet applications, designed t
 - **BubbleText**: Text with bubble animation effects
 - **TextFader**: Smooth text transitions with fade effects
 - **TypeWriter**: Typewriter-style text animation
+- **SplitText**: SplitText Animated with different animation directions
 
 ## 🛠️ Usage
 
@@ -48,6 +49,16 @@ def main(page: ft.Page):
             speed=30,
             size=40,
             color=Colors.BLUE
+        ),
+        SplitText(
+            texts=["Hello World", "Offset Animation With Loop"],
+            speed=0.1,
+            pause=1.5,
+            loop=True,
+            size=32,
+            color=Colors.BROWN,
+            bold=True,
+            direction="bottom"
         )
     )
 
@@ -61,7 +72,7 @@ Creates text with a bubble animation effect.
 
 ```python
 AnimatedTextBubble(
-    texts: list[str],
+    texts: List[str] | str,
     size: int = 24,
     bgcolor: Colors = Colors.WHITE,
     speed: int = 50,
@@ -98,6 +109,20 @@ TypeWriter(
     color: Any = Colors.WHITE,
     bold: bool = False
 )
+```
+
+### SplitText
+```python
+SplitText(
+    texts=["Hello World", "Offset Animation With Loop"],
+    speed=0.1,
+    pause=1.5,
+    loop=True,
+    size=32,
+    color=Colors.BROWN,
+    bold=True,
+    direction="bottom"
+),
 ```
 
 ## 📝 Examples
