@@ -1,22 +1,27 @@
 # 📚 Flet Widgets Library
 
-A collection of custom, animated UI components for Flet applications, designed to enhance user interfaces with smooth animations and engaging interactions.
+A collection of custom, animated UI components for **Flet applications**, designed to enhance user interfaces with smooth animations and engaging interactions.
+
+---
 
 ## 🚀 Features
 
 ### Animated Components
 
-- **BubbleText**: Text with bubble animation effects
-- **TextFader**: Smooth text transitions with fade effects
-- **TypeWriter**: Typewriter-style text animation
-- **SplitText**: SplitText Animated with different animation directions
+* **BubbleText**: Text with bubble animation effects.
+* **TextFader**: Smooth text transitions with fade effects.
+* **TypeWriter**: Typewriter-style text animation.
+* **SplitText**: Split text animation with different animation directions.
+* **HighlightRotatingText**: Static text combined with an animated, rotating text inside a dynamic highlight box.
+
+---
 
 ## 🛠️ Usage
 
 ### Basic Setup
 
 ```python
-from FletWidgetsLibrary import BubbleText, TextFader, TypeWriter
+from FletWidgetsLibrary import BubbleText, TextFader, TypeWriter, SplitText, HighlightRotatingText
 import flet as ft
 
 def main(page: ft.Page):
@@ -30,25 +35,25 @@ def main(page: ft.Page):
         Row(
             controls=[
                 AnimatedTextBubble(
-                    texts=demo_text, 
+                    texts="Hello Flet!", 
                     speed=60, 
-                    bgcolor=Colors.PURPLE
+                    bgcolor=ft.Colors.PURPLE
                 )
             ],
-            alignment=MainAxisAlignment.START,
+            alignment=ft.MainAxisAlignment.START,
             width=400 # <- Adjust this value for the width of the bubble
         ),
         TextFader(
             text="Hello World And Hello Flet",
             loop=True,
-            color=Colors.RED,
+            color=ft.Colors.RED,
             permanent=False
         ),
         TypeWriter(
-            texts=["Hello Welcome To Flet This Is A Type Writer Animated"],
+            texts=["Welcome To Flet With A Typewriter Effect"],
             speed=30,
             size=40,
-            color=Colors.BLUE
+            color=ft.Colors.BLUE
         ),
         SplitText(
             texts=["Hello World", "Offset Animation With Loop"],
@@ -56,18 +61,31 @@ def main(page: ft.Page):
             pause=1.5,
             loop=True,
             size=32,
-            color=Colors.BROWN,
+            color=ft.Colors.BROWN,
             bold=True,
             direction="bottom"
+        ),
+        HighlightRotatingText(
+            static_text="Creative",
+            phrases=["thinking", "building", "coding"],
+            interval=1.5,
+            box_color=ft.Colors.DEEP_PURPLE,
+            size=30,
+            direction="top",
+            speed=0.08,
+            width_factor=22
         )
     )
 
 ft.app(target=main)
 ```
 
+---
+
 ## 📚 Components
 
 ### AnimatedTextBubble
+
 Creates text with a bubble animation effect.
 
 ```python
@@ -82,6 +100,7 @@ AnimatedTextBubble(
 ```
 
 ### TextFader
+
 Creates a text component that fades between multiple strings.
 
 ```python
@@ -97,6 +116,7 @@ TextFader(
 ```
 
 ### TypeWriter
+
 Creates a typewriter effect for text.
 
 ```python
@@ -112,6 +132,9 @@ TypeWriter(
 ```
 
 ### SplitText
+
+Creates a split-text animation with directional entry.
+
 ```python
 SplitText(
     texts=["Hello World", "Offset Animation With Loop"],
@@ -122,16 +145,42 @@ SplitText(
     color=Colors.BROWN,
     bold=True,
     direction="bottom"
-),
+)
 ```
+
+### HighlightRotatingText
+
+Combines a static text with a **highlight box** that dynamically animates rotating phrases, showing them letter by letter.
+
+```python
+HighlightRotatingText(
+    static_text: str,
+    phrases: list[str] | str,
+    interval: float = 2.0,
+    size: int = 28,
+    color: str = Colors.WHITE,
+    bold: bool = True,
+    box_color: str = Colors.INDIGO,
+    loop: bool = True,
+    direction: str = "bottom",  # "bottom", "top", "left", "right"
+    speed: float = 0.05,
+    width_factor: int = 20,
+    static_style: TextStyle | None = None
+)
+```
+
+---
 
 ## 📝 Examples
 
 Check out the `Demo-Example.py` file for complete usage examples of each component.
 
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
 ---
 
 ### Powered By [Flet](https://flet.dev/) ❤

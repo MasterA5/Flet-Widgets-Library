@@ -1,4 +1,4 @@
-from FletWidgetsLibrary.AnimatedComponents import TextFader, TypeWriter, AnimatedTextBubble, SplitText
+from FletWidgetsLibrary import TextFader, TypeWriter, AnimatedTextBubble, SplitText, HighlightRotatingText
 from flet import *
 
 # <-------EXAMPLE DEMO------->
@@ -141,8 +141,28 @@ def main(page:Page):
                 AnimatedTextBubble(texts=demo_text, speed=60, bgcolor=Colors.PURPLE) # <- Bassed in TypeWriter Component
             ],
             alignment=MainAxisAlignment.START,
-            
             width=400 # <- Adjust this value for the width of the bubble
+        ),
+        Divider(
+            color=Colors.PURPLE,
+            height=10
+        ),
+        Text(
+            value="This Is A Highlight Rotating Text Animated",
+            color=Colors.DEEP_PURPLE,
+            size=30,
+            weight="bold"
+        ),
+        HighlightRotatingText(
+            static_text="Creative",
+            phrases=["thinking", "building", "coding"],
+            interval=1.5,
+            box_color=Colors.DEEP_PURPLE,
+            size=30,
+            direction="top",
+            speed=0.08,
+            width_factor=22
         )
     )
+
 app(target=main)
