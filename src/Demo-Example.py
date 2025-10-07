@@ -1,14 +1,38 @@
-from FletWidgetsLibrary import TextFader, TypeWriter, AnimatedTextBubble, SplitText, HighlightRotatingText
+from FletWidgetsLibrary import (
+    HighlightRotatingText,
+    AnimatedTextBubble,
+    ImagesSlider,
+    TypeWriter,
+    TextFader,
+    SplitText,
+)
 from flet import *
 
-# <-------EXAMPLE DEMO------->
-def main(page:Page):
-    page.horizontal_alignment="center"
-    page.vertical_alignment="center"
+
+def section(title: str, color: str, *controls: Control):
+    """Crea una sección con título, contenido y divisor."""
+    return Column(
+        controls=[
+            Text(value=title, color=color, size=30, weight="bold"),
+            *controls,
+            Divider(color=color, height=15),
+        ],
+        spacing=10,
+    )
+
+
+def main(page: Page):
+    # --- Configuración general ---
+    page.title = "Flet Widgets Demo"
+    page.horizontal_alignment = "center"
+    page.vertical_alignment = "center"
     page.window.width = 1200
     page.window.height = 800
-    page.scroll = "auto"
+    page.scroll = ScrollMode.AUTO
+    page.padding = 20
+    page.bgcolor = Colors.BLACK87
 
+    # --- Datos de ejemplo ---
     demo_text = (
         "### 🌟 What is Flet?\n\n"
         "**Flet** is a framework in Python for building web, desktop, and mobile apps.\n\n"
@@ -27,142 +51,148 @@ def main(page:Page):
         "Official link: [flet.dev](https://flet.dev)"
     )
 
+    images_1 = [
+        Image(src=f"https://picsum.photos/800/450?{i}", fit=ImageFit.COVER)
+        for i in range(10)
+    ]
 
-    page.add(
-        Text(
-            value="SplitText Without Loop",
-            color=Colors.CYAN,
-            size=30,
-            weight="bold"
-        ),
-        SplitText(
-            texts=["Hello World", "Offset Animation"],
-            speed=0.1,
-            pause=1.5,
-            loop=False,
-            size=32,
-            color=Colors.CYAN,
-            bold=True,
-            direction="bottom"
-        ),
-        Divider(
-            color=Colors.CYAN,
-            height=10
-        ),
-        Text(
-            value="SplitText With Loop",
-            color=Colors.BROWN,
-            size=30,
-            weight="bold"
-        ),
-        SplitText(
-            texts=["Hello World", "Offset Animation With Loop"],
-            speed=0.1,
-            pause=1.5,
-            loop=True,
-            size=32,
-            color=Colors.BROWN,
-            bold=True,
-            direction="bottom"
-        ),
-        Divider(
-            color=Colors.BROWN,
-            height=10
-        ),
-        Text(
-            value="This Is A Fade Text With Out Loop Animation And Permanent Opacity",
-            color=Colors.AMBER
-        ),
-        TextFader(
-            text="Hello World And Hello Flet",
-            loop=False,
-            color=Colors.AMBER,
-            permanent=True
-        ),
-        Divider(
-            color=Colors.AMBER,
-            height=10
-        ),
-        Text(
-            value="This Is A Fade Text With Loop Animation And Not Permanent Opacity",
-            color=Colors.RED
-        ),
-        TextFader(
-            text="Hello World And Hello Flet",
-            loop=True,
-            color=Colors.RED,
-            permanent=False
-        ),
-        Divider(
-            color=Colors.RED,
-            height=10
-        ),
-        Text(
-            value="This Is A Type Writer Text Animated",
-            color=Colors.BLUE
-        ),
-        TypeWriter(
-            texts=[
-                "Hello Welcome To Flet This Is A Type Writer Animated", 
-                "This Is A Second Part For The Type Writer Content"
-            ],
-            speed=30,
-            size=40,
-            color=Colors.BLUE
-        ),
-        Divider(
-            color=Colors.BLUE,
-            height=10
-        ),
-        Text(
-            value="This Is A Type Writer Text Animated With Loop",
-            color=Colors.GREEN
-        ),
-        TypeWriter(
-            texts=[
-                "Hello Welcome To Flet This Is A Type Writer Animated", 
-                "But This Is A Second Part For The Type Writer Content With Loop"
-            ],
-            speed=30,
-            size=40,
-            color=Colors.GREEN,
-            loop=True
-        ),
-        Divider(
-            color=Colors.GREEN,
-            height=10
-        ),
-        Text(
-            value="This Is A Bubbble Text Animated",
-            color=Colors.PURPLE,
-        ),
-        Row(
-            controls=[
-                AnimatedTextBubble(texts=demo_text, speed=60, bgcolor=Colors.PURPLE) # <- Bassed in TypeWriter Component
-            ],
-            alignment=MainAxisAlignment.START,
-            width=400 # <- Adjust this value for the width of the bubble
-        ),
-        Divider(
-            color=Colors.PURPLE,
-            height=10
-        ),
-        Text(
-            value="This Is A Highlight Rotating Text Animated",
-            color=Colors.DEEP_PURPLE,
-            size=30,
-            weight="bold"
-        ),
-        HighlightRotatingText(
-            static_text="Creative",
-            phrases=["thinking", "building", "coding"],
-            interval=1.5,
-            box_color=Colors.DEEP_PURPLE,
-            size=30,
-            direction="top",
-            speed=0.08,
-            width_factor=22
-        )
+    images_2 = [
+        Image(src=f"https://picsum.photos/800/450?{i*2}", fit=ImageFit.COVER)
+        for i in range(10)
+    ]
+
+    # --- Construcción de la interfaz ---
+    content = Column(
+        spacing=30,
+        scroll=ScrollMode.ADAPTIVE,
+        controls=[
+            section(
+                "SplitText Without Loop",
+                Colors.CYAN,
+                SplitText(
+                    texts=["Hello World", "Offset Animation"],
+                    speed=0.1,
+                    pause=1.5,
+                    loop=False,
+                    size=32,
+                    color=Colors.CYAN,
+                    bold=True,
+                    direction="bottom",
+                ),
+            ),
+            section(
+                "SplitText With Loop",
+                Colors.BROWN,
+                SplitText(
+                    texts=["Hello World", "Offset Animation With Loop"],
+                    speed=0.1,
+                    pause=1.5,
+                    loop=True,
+                    size=32,
+                    color=Colors.BROWN,
+                    bold=True,
+                    direction="bottom",
+                ),
+            ),
+            section(
+                "Fade Text Without Loop (Permanent)",
+                Colors.AMBER,
+                TextFader(
+                    text="Hello World And Hello Flet",
+                    loop=False,
+                    color=Colors.AMBER,
+                    permanent=True,
+                ),
+            ),
+            section(
+                "Fade Text With Loop (Not Permanent)",
+                Colors.RED,
+                TextFader(
+                    text="Hello World And Hello Flet",
+                    loop=True,
+                    color=Colors.RED,
+                    permanent=False,
+                ),
+            ),
+            section(
+                "TypeWriter Text Animation",
+                Colors.BLUE,
+                TypeWriter(
+                    texts=[
+                        "Hello Welcome To Flet This Is A Type Writer Animated",
+                        "This Is A Second Part For The Type Writer Content",
+                    ],
+                    speed=30,
+                    size=40,
+                    color=Colors.BLUE,
+                ),
+            ),
+            section(
+                "TypeWriter Text Animation With Loop",
+                Colors.GREEN,
+                TypeWriter(
+                    texts=[
+                        "Hello Welcome To Flet This Is A Type Writer Animated",
+                        "But This Is A Second Part For The Type Writer Content With Loop",
+                    ],
+                    speed=30,
+                    size=40,
+                    color=Colors.GREEN,
+                    loop=True,
+                ),
+            ),
+            section(
+                "Bubble Text Animation",
+                Colors.PURPLE,
+                Row(
+                    controls=[
+                        AnimatedTextBubble(
+                            texts=demo_text,
+                            speed=60,
+                            bgcolor=Colors.PURPLE,
+                        )
+                    ],
+                    alignment=MainAxisAlignment.START,
+                    width=600,
+                ),
+            ),
+            section(
+                "Highlight Rotating Text",
+                Colors.DEEP_PURPLE,
+                HighlightRotatingText(
+                    static_text="Creative",
+                    phrases=["thinking", "building", "coding"],
+                    interval=1.5,
+                    box_color=Colors.DEEP_PURPLE,
+                    size=30,
+                    direction="top",
+                    speed=0.08,
+                    width_factor=22,
+                ),
+            ),
+            section(
+                "Images Slider Without AutoPlay",
+                Colors.TEAL,
+                ImagesSlider(
+                    images=images_2,
+                    animation_type="SCALE",
+                    auto_play=False,
+                ),
+            ),
+            section(
+                "Images Slider With AutoPlay",
+                Colors.DEEP_PURPLE,
+                ImagesSlider(
+                    images=images_1,
+                    auto_play=True,
+                    interval=1.5,
+                    animation_type="FADE",
+                ),
+            ),
+        ],
     )
+
+    page.add(content)
+
 
 app(target=main)
