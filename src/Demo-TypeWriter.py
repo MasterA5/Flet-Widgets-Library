@@ -15,7 +15,8 @@ def main(page:Page):
         bold=True,
         color=Colors.WHITE,
         size=30,
-        speed=30
+        speed=30,
+        loop=True
     )
 
     TypeWriterTextWithOutLoop = TypeWriter(
