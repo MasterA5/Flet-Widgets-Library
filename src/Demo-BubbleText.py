@@ -31,7 +31,7 @@ def main(page:Page):
     BubbleText = AnimatedTextBubble(
         texts=demo_text,
         bgcolor=Colors.GREY_700,
-        speed=150,
+        speed=50,
     )
 
     page.add(
