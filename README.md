@@ -13,6 +13,7 @@ A collection of custom, animated UI components for **Flet applications**, design
 * **TypeWriter**: Typewriter-style text animation.
 * **SplitText**: Split text animation with different animation directions.
 * **HighlightRotatingText**: Static text combined with an animated, rotating text inside a dynamic highlight box.
+* **ImageSlider**: Image Slider With Animations And Effects For Transitions Bassed On [This Video](https://www.youtube.com/watch?v=Vbu1UAaoJxw&t=63s)
 
 ---
 
@@ -169,11 +170,34 @@ HighlightRotatingText(
 )
 ```
 
----
+### ImagesSlider
 
+Create A Images Slider More Easy With This Widget With A Better Animations And Transitions
+
+```python
+ImagesSlider(
+    images: list[Image],
+    auto_play: bool = False,
+    interval: float = 3,
+    buttons_color: str = Colors.GREY_900,
+    selected_buttons_color: str = Colors.WHITE,
+    animation_type: str = "FADE"
+)
+```
+
+## 🧪 Tested On
+
+| Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText |
+|----------|------------|-----------|--------------|-----------|------------|--------------|
+| Android  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅   |
+| iOS      | ❌          | ❌         | ❌            | ❌         | ❌          | ❌   |
+| Windows  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅   |
+| MacOS    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌   |
+| Linux    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌   |
 ## 📝 Examples
 
-Check out the `Demo-Example.py` file for complete usage examples of each component.
+Check out the `Demo-Example.py` file for complete usage examples of each component or Check Any Examples Individualy.
+
 
 ---
 
