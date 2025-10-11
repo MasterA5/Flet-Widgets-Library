@@ -8,7 +8,7 @@ A collection of custom, animated UI components for **Flet applications**, design
 
 ### Animated Components
 
-* **BubbleText**: Text with bubble animation effects.
+* **Bubble Text**: Bubble text animation effects with a new refactoring, now with more expensive and interesting features.
 * **TextFader**: Smooth text transitions with fade effects.
 * **TypeWriter**: Typewriter-style text animation.
 * **SplitText**: Split text animation with different animation directions.
@@ -36,9 +36,11 @@ def main(page: ft.Page):
         Row(
             controls=[
                 AnimatedTextBubble(
-                    texts="Hello Flet!", 
-                    speed=60, 
-                    bgcolor=ft.Colors.PURPLE
+                    texts="Hello Flet!!",
+                    bgcolor=Colors.GREY_700,
+                    speed=60,
+                    MarkdownCodeTheme=MarkdownCodeTheme.DRAGULA,
+                    ExtensionSet=MarkdownExtensionSet.GITHUB_WEB,
                 )
             ],
             alignment=ft.MainAxisAlignment.START,
@@ -87,16 +89,18 @@ ft.app(target=main)
 
 ### AnimatedTextBubble
 
-Creates text with a bubble animation effect.
+Creates text with a bubble animation effect and give a best Markdown themes.
+> Complete Markdonw Support!!
 
 ```python
 AnimatedTextBubble(
-    texts: List[str] | str,
-    size: int = 24,
-    bgcolor: Colors = Colors.WHITE,
-    speed: int = 50,
-    pause: int = 0,
-    on_copied: Optional[callable] = None,
+    texts: Union[str, List[str]],
+    speed: int = 10,
+    pause: float = 0,
+    bgcolor: Colors = Colors.GREY_900,
+    border_radius: int = 20,
+    MarkdownCodeTheme: MarkdownCodeTheme = MarkdownCodeTheme.ATOM_ONE_DARK,
+    ExtensionSet: MarkdownExtensionSet = MarkdownExtensionSet.GITHUB_WEB
 )
 ```
 
@@ -138,14 +142,14 @@ Creates a split-text animation with directional entry.
 
 ```python
 SplitText(
-    texts=["Hello World", "Offset Animation With Loop"],
-    speed=0.1,
-    pause=1.5,
-    loop=True,
-    size=32,
-    color=Colors.BROWN,
-    bold=True,
-    direction="bottom"
+    texts: list[str] = ["Hello World", "Offset Animation With Loop"],
+    speed: float = 0.1,
+    pause: flota = 1.5,
+    loop: bool = True,
+    size: int = 32,
+    color: Colors = Colors.BROWN,
+    bold: bool = True,
+    direction: str = "bottom"
 )
 ```
 
