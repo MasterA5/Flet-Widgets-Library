@@ -6,14 +6,14 @@ A collection of custom, animated UI components for **Flet applications**, design
 
 ## 🚀 Features
 
-### Animated Components
+### **Animated Components**
 
-* **Bubble Text**: Bubble text animation effects with a new refactoring, now with more expensive and interesting features.
-* **TextFader**: Smooth text transitions with fade effects.
-* **TypeWriter**: Typewriter-style text animation.
-* **SplitText**: Split text animation with different animation directions.
+* **BubbleText**: Bubble text animation effects with a complete refactor — now featuring richer and more dynamic behaviors.
+* **TextFader**: Smooth text transitions with elegant fade effects.
+* **TypeWriter**: Typewriter-style text animation for a classic typing effect.
+* **SplitText**: Text splitting animation with multiple direction options.
 * **HighlightRotatingText**: Static text combined with an animated, rotating text inside a dynamic highlight box.
-* **ImageSlider**: Image Slider With Animations And Effects For Transitions Bassed On [This Video](https://www.youtube.com/watch?v=Vbu1UAaoJxw&t=63s)
+* **ImageSlider**: Image slider with smooth transition animations and effects, inspired by [this video](https://www.youtube.com/watch?v=Vbu1UAaoJxw&t=63s). Credits to [DevSenate](https://github.com/navideveloper).
 
 ---
 
