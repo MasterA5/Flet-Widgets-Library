@@ -148,8 +148,10 @@ def main(page: Page):
                     controls=[
                         AnimatedTextBubble(
                             texts=demo_text,
+                            bgcolor=Colors.GREY_700,
                             speed=60,
-                            bgcolor=Colors.PURPLE,
+                            MarkdownCodeTheme=MarkdownCodeTheme.DRAGULA,
+                            ExtensionSet=MarkdownExtensionSet.GITHUB_WEB,
                         )
                     ],
                     alignment=MainAxisAlignment.START,
