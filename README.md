@@ -23,11 +23,11 @@ A collection of custom, animated UI components for **Flet applications**, design
 
 ```python
 from FletWidgetsLibrary import BubbleText, TextFader, TypeWriter, SplitText, HighlightRotatingText
-import flet as ft
+from flet import *
 
-def main(page: ft.Page):
+def main(page: Page):
     page.title = "Flet Widgets Library Demo"
-    page.theme_mode = ft.ThemeMode.DARK
+    page.theme_mode = ThemeMode.DARK
     page.padding = 50
     page.update()
 
@@ -80,7 +80,7 @@ def main(page: ft.Page):
         )
     )
 
-ft.app(target=main)
+app(target=main)
 ```
 
 ---
