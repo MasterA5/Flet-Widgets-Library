@@ -1,5 +1,7 @@
 from FletWidgetsLibrary import AnimatedTextBubble
 from flet import (
+    MarkdownExtensionSet,
+    MarkdownCodeTheme,
     Colors,
     Page,
     Row,
@@ -31,7 +33,9 @@ def main(page:Page):
     BubbleText = AnimatedTextBubble(
         texts=demo_text,
         bgcolor=Colors.GREY_700,
-        speed=50,
+        speed=60,
+        MarkdownCodeTheme=MarkdownCodeTheme.DRAGULA,
+        ExtensionSet=MarkdownExtensionSet.GITHUB_WEB,
     )
 
     page.add(
