@@ -2,10 +2,12 @@ from typing import List, Union
 from flet import (
     MarkdownExtensionSet,
     MarkdownCodeTheme,
+    BorderRadius,
     Container,
     Markdown,
     SnackBar,
     Colors,
+    Border,
     Column,
     border,
     Text,
@@ -22,9 +24,10 @@ class AnimatedTextBubble(Container):
         speed: int = 10,
         pause: float = 0,
         bgcolor: Colors = Colors.GREY_900,
-        border_radius: int = 20,
+        border_radius: Union[int, BorderRadius] = 20,
         MarkdownCodeTheme: MarkdownCodeTheme = MarkdownCodeTheme.ATOM_ONE_DARK,
-        ExtensionSet: MarkdownExtensionSet = MarkdownExtensionSet.GITHUB_WEB
+        ExtensionSet: MarkdownExtensionSet = MarkdownExtensionSet.GITHUB_WEB,
+        border: Border = None,
     ):
         super().__init__()
         self.texts = texts if isinstance(texts, list) else [texts]
@@ -40,7 +43,7 @@ class AnimatedTextBubble(Container):
         self.expand_loose = True
         self.padding = 10
         self.border_radius = border_radius
-        self.border = border.all(3, Colors.with_opacity(0.4, Colors.WHITE))
+        self.border = border
         self.on_long_press = self._copy_to_clipboard
         self.ink = True
 
@@ -61,7 +64,7 @@ class AnimatedTextBubble(Container):
         self.page.overlay.append(
             SnackBar(
                 content=Text("✅ Copied to clipboard", color=Colors.WHITE),
-                bgcolor=Colors.BLACK,
+                bgcolor=self.bgcolor,
                 open=True,
                 action="Close",
                 action_color=Colors.WHITE,
