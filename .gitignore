@@ -82,6 +82,12 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# TODOs list
+TODO/
+TODO.*
+
+BasicComponents/
+
 # IPython
 profile_default/
 ipython_config.py
