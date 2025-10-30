@@ -2,6 +2,10 @@
 
 A collection of custom, animated UI components for **Flet applications**, designed to enhance user interfaces with smooth animations and engaging interactions.
 
+## 🌐 Live Demo
+
+👉 [Try the Live Example](https://fletwidgetslibrarydemoexample.pages.dev)
+
 ---
 
 ## 🚀 Features
