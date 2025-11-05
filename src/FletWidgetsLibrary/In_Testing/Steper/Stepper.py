@@ -169,7 +169,7 @@ class Stepper(Container):
                 ),
                 ElevatedButton(
                     text="Siguiente" if self.current_step < len(self.steps) - 1 else "Finalizar",
-                    on_click=self.next_step,
+                    on_click=self.next_step
                 ),
             ],
         )
@@ -259,7 +259,10 @@ def main(page: Page):
     def handle_stepper_event(ev: StepperEvent):
         print(f"📢 Evento: {ev.type.upper()} | Paso {ev.current_step + 1}/{ev.total_steps}")
         if ev.type == "complete":
-            print("Complete")
+            print("Completed")
+
+    name = TextField(label="Nombre", on_submit=lambda e: print(e.control.value))
+    email = TextField(label="Correo", on_submit=lambda e: print(e.control.value))
 
     steps = [
         StepperStepCard(
@@ -267,10 +270,9 @@ def main(page: Page):
             description="Ingrese nombre y correo.",
             subtitle="Ingrese su usuario",
             icon=Icons.PERSON,
-            content=Column([
-                TextField(label="Nombre"),
-                TextField(label="Correo"),
-            ]),
+            content=Column(
+                controls=[name, email]
+            ),
         ),
         StepperStepCard(
             title="Dirección",
