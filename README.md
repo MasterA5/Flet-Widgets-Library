@@ -12,12 +12,18 @@ A collection of custom, animated UI components for **Flet applications**, design
 
 ### **Animated Components**
 
-* **BubbleText**: Bubble text animation effects with a complete refactor — now featuring richer and more dynamic behaviors.
-* **TextFader**: Smooth text transitions with elegant fade effects.
-* **TypeWriter**: Typewriter-style text animation for a classic typing effect.
-* **SplitText**: Text splitting animation with multiple direction options.
-* **HighlightRotatingText**: Static text combined with an animated, rotating text inside a dynamic highlight box.
-* **ImageSlider**: Image slider with smooth transition animations and effects, inspired by [this video](https://www.youtube.com/watch?v=Vbu1UAaoJxw&t=63s). Credits to [DevSenate](https://github.com/navideveloper).
+- **BubbleText**: Bubble text animation effects with a complete refactor — now featuring richer and more dynamic behaviors.
+- **TextFader**: Smooth text transitions with elegant fade effects.
+- **TypeWriter**: Typewriter-style text animation for a classic typing effect.
+- **SplitText**: Text splitting animation with multiple direction options.
+- **HighlightRotatingText**: Static text combined with an animated, rotating text inside a dynamic highlight box.
+- **ImageSlider**: Image slider with smooth transition animations and effects, inspired by [this video](https://www.youtube.com/watch?v=Vbu1UAaoJxw&t=63s). Credits to [DevSenate](https://github.com/navideveloper).
+
+### **Basic Components**
+
+- **BasicButton**: Basic Button With a default animations and styles
+- **RestrictedInput**: Text field with rules to validate its value
+- **Stepper**: Basic Stepper Widget For Make a Modern Form
 
 ---
 
@@ -94,6 +100,7 @@ app(target=main)
 ### AnimatedTextBubble
 
 Creates text with a bubble animation effect and give a best Markdown themes.
+
 > Complete Markdonw Support!!
 
 ```python
@@ -193,19 +200,97 @@ ImagesSlider(
 )
 ```
 
+### BasicButton
+
+Create a Basic Button With Easy Animations And Styles
+
+```python
+BasicButton(
+    text: str,
+    on_click: Optional[Callable] = None,
+    bgcolor: Union[str, Colors] = Colors.BLUE,
+    text_color: Union[str, Colors] = Colors.WHITE,
+    icon: Optional[str] = None,
+    hover_scale: float = 1.08,
+    click_scale: float = 0.9,
+    animation_duration: int = 200,
+)
+```
+
+### RestrictedInput
+
+Create a text field with rules to validate its content (This is not a final version).
+
+```python
+RestrictedInput(
+    pattern: str = None,
+    on_validate=None,
+    **kwargs
+)
+```
+
+### Stepper
+
+Create a Modern Stepper More Easy
+This widget include a custom dataclass for its events and make your custom ```StepperStepCard()```
+
+## Stepper Event
+
+```python
+@dataclass
+class StepperEvent:
+    type: str
+    current_step: int            
+    total_steps: int             
+    step: Control                
+    is_first: bool
+    is_last: bool
+    completed: bool
+    parent: Control
+```
+
+## Stepper Step Card
+
+```python
+StepperStepCard(
+    title: str,
+    subtitle: str = "",
+    description: str = "",
+    icon: Union[Control, Icons] = Icons.CIRCLE,
+    icon_color: str = Colors.WHITE,
+    icon_size: int = 30,
+    content: Optional[Control] = None,
+    color: str = Colors.BLUE_400,
+    active_color: Optional[str] = None,
+)
+```
+
+## Stepper
+
+```python
+Stepper(
+    steps: list[StepperStepCard],
+    on_event=None,
+    on_complete=None,
+    active_color=Colors.BLUE,
+    inactive_color=Colors.GREY_700,
+    completed_color=Colors.GREEN,
+)
+```
+
 ## 🧪 Tested On
 
 | Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText |
-|----------|------------|-----------|--------------|-----------|------------|--------------|
-| Android  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅   |
-| iOS      | ❌          | ❌         | ❌            | ❌         | ❌          | ❌   |
-| Windows  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅   |
-| MacOS    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌   |
-| Linux    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌   |
+| -------- | ---------- | --------- | ------------ | --------- | ---------- | ------------ |
+| Android  | ✅         | ✅        | ✅           | ✅        | ✅         | ✅           |
+| iOS      | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           |
+| Windows  | ✅         | ✅        | ✅           | ✅        | ✅         | ✅           |
+| MacOS    | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           |
+| Linux    | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           |
+
 ## 📝 Examples
 
 Check out the `Demo-Example.py` file for complete usage examples of each component or Check Any Examples Individualy.
-
 
 ---
 
