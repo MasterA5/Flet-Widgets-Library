@@ -86,16 +86,9 @@ target/
 TODO/
 TODO.*
 
-BasicComponents/
-
 # IPython
 profile_default/
 ipython_config.py
-
-DemoExample/src
-DemoExample/.gitignore
-DemoExample/pyproject.toml
-DemoExample/README.md
 
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
