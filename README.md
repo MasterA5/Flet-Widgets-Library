@@ -1,107 +1,32 @@
 # 📚 Flet Widgets Library
 
-A collection of custom, animated UI components for **Flet applications**, designed to enhance user interfaces with smooth animations and engaging interactions.
-
-## 🌐 Live Demo
-
-👉 [Try the Live Example](https://fletwidgetslibrarydemoexample.pages.dev)
+✨ A rich collection of **custom, animated UI components** for [**Flet**](https://flet.dev/) applications — designed to enhance user interfaces with smooth animations, elegant transitions, and engaging interactions.
 
 ---
 
 ## 🚀 Features
 
-### **Animated Components**
+### 🌀 **Animated Components**
+- **BubbleText** → Bubble-style animated markdown text.
+- **TextFader** → Smooth fade-in/fade-out text transitions.
+- **TypeWriter** → Classic typing animation effect.
+- **SplitText** → Directional split text animations.
+- **HighlightRotatingText** → Dynamic rotating phrases inside a highlight box.
+- **ImageSlider** → Elegant image slider with transition effects ([inspired by DevSenate](https://github.com/navideveloper)).
+- **Animated Lists** → Stylish unordered and ordered animated list components.
 
-- **BubbleText**: Bubble text animation effects with a complete refactor — now featuring richer and more dynamic behaviors.
-- **TextFader**: Smooth text transitions with elegant fade effects.
-- **TypeWriter**: Typewriter-style text animation for a classic typing effect.
-- **SplitText**: Text splitting animation with multiple direction options.
-- **HighlightRotatingText**: Static text combined with an animated, rotating text inside a dynamic highlight box.
-- **ImageSlider**: Image slider with smooth transition animations and effects, inspired by [this video](https://www.youtube.com/watch?v=Vbu1UAaoJxw&t=63s). Credits to [DevSenate](https://github.com/navideveloper).
-
-### **Basic Components**
-
-- **BasicButton**: Basic Button With a default animations and styles
-- **RestrictedInput**: Text field with rules to validate its value
-- **Stepper**: Basic Stepper Widget For Make a Modern Form
-
----
-
-## 🛠️ Usage
-
-### Basic Setup
-
-```python
-from FletWidgetsLibrary import BubbleText, TextFader, TypeWriter, SplitText, HighlightRotatingText
-from flet import *
-
-def main(page: Page):
-    page.title = "Flet Widgets Library Demo"
-    page.theme_mode = ThemeMode.DARK
-    page.padding = 50
-    page.update()
-
-    # Add your widgets here
-    page.add(
-        Row(
-            controls=[
-                AnimatedTextBubble(
-                    texts="Hello Flet!!",
-                    bgcolor=Colors.GREY_700,
-                    speed=60,
-                    MarkdownCodeTheme=MarkdownCodeTheme.DRAGULA,
-                    ExtensionSet=MarkdownExtensionSet.GITHUB_WEB,
-                )
-            ],
-            alignment=ft.MainAxisAlignment.START,
-            width=400 # <- Adjust this value for the width of the bubble
-        ),
-        TextFader(
-            text="Hello World And Hello Flet",
-            loop=True,
-            color=ft.Colors.RED,
-            permanent=False
-        ),
-        TypeWriter(
-            texts=["Welcome To Flet With A Typewriter Effect"],
-            speed=30,
-            size=40,
-            color=ft.Colors.BLUE
-        ),
-        SplitText(
-            texts=["Hello World", "Offset Animation With Loop"],
-            speed=0.1,
-            pause=1.5,
-            loop=True,
-            size=32,
-            color=ft.Colors.BROWN,
-            bold=True,
-            direction="bottom"
-        ),
-        HighlightRotatingText(
-            static_text="Creative",
-            phrases=["thinking", "building", "coding"],
-            interval=1.5,
-            box_color=ft.Colors.DEEP_PURPLE,
-            size=30,
-            direction="top",
-            speed=0.08,
-            width_factor=22
-        )
-    )
-
-app(target=main)
-```
+### 🧩 **Basic Components**
+- **BasicButton** → Animated button with hover and click effects.
+- **RestrictedInput** → Input with pattern validation rules.
+- **Stepper** → Modern stepper widget for multi-step forms.
 
 ---
 
-## 📚 Components
+## 🎨 Components
 
-### AnimatedTextBubble
+### **AnimatedTextBubble**
 
-Creates text with a bubble animation effect and give a best Markdown themes.
-
-> Complete Markdonw Support!!
+Create text with bubble animation and full **Markdown support**.
 
 ```python
 AnimatedTextBubble(
@@ -115,9 +40,15 @@ AnimatedTextBubble(
 )
 ```
 
-### TextFader
+## 🎬 Example:
 
-Creates a text component that fades between multiple strings.
+<video src="videos/bubble-text.mp4" width="600" controls></video>
+
+---
+
+### 🌫️ **TextFader**
+
+Smoothly fade between multiple text strings.
 
 ```python
 TextFader(
@@ -131,9 +62,15 @@ TextFader(
 )
 ```
 
-### TypeWriter
+## 🎬 Example:
 
-Creates a typewriter effect for text.
+<video src="videos/text-fader.mp4" width="600" controls></video>
+
+---
+
+### ⌨️ **TypeWriter**
+
+Simulates a typing effect for one or multiple phrases.
 
 ```python
 TypeWriter(
@@ -147,26 +84,38 @@ TypeWriter(
 )
 ```
 
-### SplitText
+## 🎬 Example:
 
-Creates a split-text animation with directional entry.
+<video src="videos/type-writter.mp4" width="600" controls></video>
+
+---
+
+### ✂️ **SplitText**
+
+Creates animated text that enters from a direction (top, bottom, left, right).
 
 ```python
 SplitText(
-    texts: list[str] = ["Hello World", "Offset Animation With Loop"],
+    texts: list[str],
     speed: float = 0.1,
-    pause: flota = 1.5,
+    pause: float = 1.5,
     loop: bool = True,
     size: int = 32,
-    color: Colors = Colors.BROWN,
+    color: Colors = Colors.WHITE,
     bold: bool = True,
     direction: str = "bottom"
 )
 ```
 
-### HighlightRotatingText
+## 🎬 Example:
 
-Combines a static text with a **highlight box** that dynamically animates rotating phrases, showing them letter by letter.
+<video src="videos/split-text.mp4" width="600" controls></video>
+
+---
+
+### 💡 **HighlightRotatingText**
+
+Combine static and dynamic text inside a highlight box.
 
 ```python
 HighlightRotatingText(
@@ -178,16 +127,21 @@ HighlightRotatingText(
     bold: bool = True,
     box_color: str = Colors.INDIGO,
     loop: bool = True,
-    direction: str = "bottom",  # "bottom", "top", "left", "right"
+    direction: str = "bottom",
     speed: float = 0.05,
     width_factor: int = 20,
-    static_style: TextStyle | None = None
 )
 ```
 
-### ImagesSlider
+## 🎬 Example:
 
-Create A Images Slider More Easy With This Widget With A Better Animations And Transitions
+<video src="videos/rotating-text.mp4" width="600" controls></video>
+
+---
+
+### 🖼️ **ImagesSlider**
+
+An elegant image carousel with smooth transitions.
 
 ```python
 ImagesSlider(
@@ -200,9 +154,14 @@ ImagesSlider(
 )
 ```
 
-### BasicButton
+## 🎬 Example:
 
-Create a Basic Button With Easy Animations And Styles
+<video src="videos/image-carousel.mp4" width="600" controls></video>
+---
+
+### 🔘 **BasicButton**
+
+A modern button with hover and click animations.
 
 ```python
 BasicButton(
@@ -217,9 +176,16 @@ BasicButton(
 )
 ```
 
-### RestrictedInput
+## 🎬 Example:
 
-Create a text field with rules to validate its content (This is not a final version).
+<video src="videos/basic-button.mp4" width="600" controls></video>
+
+---
+
+### ✏️ **RestrictedInput**
+
+Input field with validation based on regular expressions. 
+<p style="color:yellow">⚠ This widget is still under development, so its documentation is not yet complete and is subject to change.</p>
 
 ```python
 RestrictedInput(
@@ -229,27 +195,36 @@ RestrictedInput(
 )
 ```
 
-### Stepper
+---
 
-Create a Modern Stepper More Easy
-This widget include a custom dataclass for its events and make your custom ```StepperStepCard()```
+### 🧭 **Stepper**
 
-## Stepper Event
+A customizable multi-step UI widget for modern forms.
+<p style="color:yellow">⚠ This widget is still under development, so some features may not work correctly.</p>
+<h3>For example:</h3>
+<ul>
+    <li>Internal Null Input Values</li>
+    <li>Values ​​within the False checkbox</li>
+    <li>Animations</li>
+</ul>
+
+#### StepperEvent
 
 ```python
 @dataclass
 class StepperEvent:
     type: str
-    current_step: int            
-    total_steps: int             
-    step: Control                
+    current_step: int
+    total_steps: int
+    step: Control
     is_first: bool
     is_last: bool
     completed: bool
     parent: Control
+)
 ```
 
-## Stepper Step Card
+#### StepperStepCard
 
 ```python
 StepperStepCard(
@@ -265,7 +240,7 @@ StepperStepCard(
 )
 ```
 
-## Stepper
+#### Stepper
 
 ```python
 Stepper(
@@ -278,26 +253,71 @@ Stepper(
 )
 ```
 
+## 🎬 Example:
+
+<video src="videos/stepper.mp4" width="600" controls></video>
+
+---
+
+### 📋 **Animated Lists**
+
+Create beautiful animated ordered and unordered lists.
+
+#### Unordered
+
+```python
+UnorderedList(
+    items: List[ListItem],
+    spacing: int = 5,
+    item_color: str = Colors.AMBER_700,
+    delay: float = 0.01
+)
+```
+
+#### Ordered
+
+```python
+OrderedList(
+    items: List[ListItem],
+    spacing: int = 5,
+    item_color: str = Colors.AMBER_700,
+    delay: float = 0.01
+)
+```
+
+## 🎬 Example:
+
+<video src="videos/animated-list.mp4" width="600" controls></video>
+
+---
+
 ## 🧪 Tested On
 
-| Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText |
-| -------- | ---------- | --------- | ------------ | --------- | ---------- | ------------ |
-| Android  | ✅         | ✅        | ✅           | ✅        | ✅         | ✅           |
-| iOS      | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           |
-| Windows  | ✅         | ✅        | ✅           | ✅        | ✅         | ✅           |
-| MacOS    | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           |
-| Linux    | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           |
+| Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText | BasicButton | RestrictedInput | Stepper | UnorderedList | OrderedList |
+|-----------|-------------|------------|---------------|------------|--------------|---------------|--------------|----------------|----------|----------------|--------------|
+| Android   | ✅          | ✅         | ✅            | ✅         | ✅           | ✅            | ✅           | ✅             | ✅       | ✅             | ✅           |
+| iOS       | ❌          | ❌         | ❌            | ❌         | ❌           | ❌            | ❌           | ❌             | ❌       | ❌             | ❌           |
+| Windows   | ✅          | ✅         | ✅            | ✅         | ✅           | ✅            | ✅           | ✅             | ✅       | ✅             | ✅           |
+| macOS     | ❌          | ❌         | ❌            | ❌         | ❌           | ❌            | ❌           | ❌             | ❌       | ❌             | ❌           |
+| Linux     | ❌          | ❌         | ❌            | ❌         | ❌           | ❌            | ❌           | ❌             | ❌       | ❌             | ❌           |
+
+
+---
 
 ## 📝 Examples
 
-Check out the `Demo-Example.py` file for complete usage examples of each component or Check Any Examples Individualy.
+Explore the `Demo-Example.py` file for a complete showcase,
+or open individual examples inside the `examples/` folder.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Pull requests are welcome!
+If you'd like to contribute, fork the repo and submit your improvements — code style, docs, or new widgets are all appreciated 💡
 
 ---
 
-### Powered By [Flet](https://flet.dev/) ❤
+## ❤️ Powered By Flet
+
+Built with love using [**Flet**](https://flet.dev/).
