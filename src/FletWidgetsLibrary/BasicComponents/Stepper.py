@@ -1,6 +1,26 @@
-from typing import List, Any, Optional, Union
+from typing import Optional, Union
 from dataclasses import dataclass
-from flet import *
+from flet import (
+    AnimatedSwitcherTransition,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    AnimatedSwitcher,
+    OutlinedButton,
+    ElevatedButton,
+    FilledButton,
+    Container,
+    TextAlign,
+    alignment,
+    padding,
+    Divider,
+    Control,
+    Column,
+    Colors,
+    Icons,
+    Icon,
+    Text,
+    Row,
+)
 
 
 # === DataClass para eventos del Stepper ===
@@ -40,7 +60,7 @@ class StepperStepCard(Container):
         self.color = color
         self.active_color = active_color or color
 
-        self.inner_content = content or Text(f"Contenido del paso: {title}", size=14)
+        self.inner_content = content or Text(f"Step Content: {title}", size=14)
 
         self.bgcolor = Colors.with_opacity(0.1, Colors.BLUE_GREY_900)
         self.border_radius = 10
@@ -92,13 +112,13 @@ class Stepper(Container):
         self.completed = False
 
         self.prev_btn = OutlinedButton(
-            text="Anterior",
+            text="Previous",
             on_click=self.prev_step,
             disabled=self.current_step == 0,
         )
 
         self.next_btn = ElevatedButton(
-            text="Siguiente" if self.current_step < len(self.steps) - 1 else "Finalizar",
+            text="Next" if self.current_step < len(self.steps) - 1 else "Finish",
             on_click=self.next_step
         )
 
@@ -240,9 +260,9 @@ class Stepper(Container):
                     spacing=10,
                     controls=[
                         Icon(name=Icons.CHECK_CIRCLE, color=Colors.GREEN, size=90),
-                        Text("¡Proceso completado!", size=22, weight="bold"),
-                        Text("Gracias por completar todos los pasos.", size=14, color=Colors.GREY_300),
-                        FilledButton("Cerrar", on_click=lambda e: self._close_stepper()),
+                        Text("¡Proccess Completed!", size=22, weight="bold"),
+                        Text("Thanks For Complete All Steps", size=14, color=Colors.GREY_300),
+                        FilledButton("Close", on_click=lambda e: self._close_stepper()),
                     ],
                 )
             ]
@@ -270,72 +290,3 @@ class Stepper(Container):
         else:
             self.page.controls.remove(self.parent)
         self.page.update()
-
-# === Ejemplo de uso ===
-def main(page: Page):
-    page.title = "Stepper con eventos personalizados"
-    page.bgcolor = Colors.BLACK
-    page.vertical_alignment = MainAxisAlignment.CENTER
-    page.horizontal_alignment = CrossAxisAlignment.CENTER
-
-    # === Evento de finalización ===
-    def handle_complete(ev: StepperEvent):
-        dlg = AlertDialog(
-            title=Text("🎉 ¡Completado!"),
-            content=Text("Todos los pasos se han completado con éxito."),
-            open=True,
-            actions=[
-                TextButton(
-                    text="Cerrar", 
-                    on_click=lambda e: (
-                        setattr(
-                            page.overlay[0], 
-                            "open", 
-                            False
-                        ), 
-                        page.update()
-                    )
-                )
-            ],
-        )
-        page.overlay.append(dlg)
-        page.controls.remove(ev.parent)
-        page.update()
-
-    steps = [
-        StepperStepCard(
-            title="Usuario", 
-            description="Datos básicos", 
-            icon=Icons.PERSON, 
-            content=Column(
-                controls=[
-                    TextField(label="Nombre"), 
-                    TextField(label="Correo")
-                ]
-            )
-        ),
-        StepperStepCard(
-            title="Dirección", 
-            description="Datos de envío", 
-            icon=Icons.HOME, 
-            content=Column(
-                controls=[
-                    TextField(label="Ciudad"), 
-                    TextField(label="Calle")
-                ]
-            )
-        ),
-        StepperStepCard(
-            title="Confirmación", 
-            description="Verificar", 
-            icon=Icons.CHECKLIST, 
-            content=Checkbox(label="Confirmo mis datos")
-        )
-    ]
-
-    stepper = Stepper(steps=steps, on_complete=handle_complete)
-    page.add(Container(width=500, content=stepper))
-
-
-if __name__ == "__main__":
-    app(target=main)
