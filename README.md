@@ -42,7 +42,7 @@ AnimatedTextBubble(
 
 ## 🎬 Example:
 
-<video src="videos/bubble-text.mp4" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/d474e471-e86f-41fb-ab3d-8277b6fb195d" width="600" controls></video>
 
 ---
 
@@ -64,7 +64,7 @@ TextFader(
 
 ## 🎬 Example:
 
-<video src="videos/text-fader.mp4" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/f94f5a12-c722-4a0b-81e2-270c2864ca88" width="600" controls></video>
 
 ---
 
@@ -86,7 +86,7 @@ TypeWriter(
 
 ## 🎬 Example:
 
-<video src="videos/type-writter.mp4" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/ae09ebea-5743-4853-b153-c00d2514c0f7" width="600" controls></video>
 
 ---
 
@@ -109,7 +109,7 @@ SplitText(
 
 ## 🎬 Example:
 
-<video src="videos/split-text.mp4" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/7b928c3f-ab94-4e4a-8a9f-11a2d89b63f9" width="600" controls></video>
 
 ---
 
@@ -135,7 +135,7 @@ HighlightRotatingText(
 
 ## 🎬 Example:
 
-<video src="videos/rotating-text.mp4" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/86c0adba-ded7-40d5-8c3c-2f7f2d5f56c2" width="600" controls></video>
 
 ---
 
@@ -156,7 +156,8 @@ ImagesSlider(
 
 ## 🎬 Example:
 
-<video src="videos/image-carousel.mp4" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/acd4c12b-d611-4229-a198-35cef496d672" width="600" controls></video>
+
 ---
 
 ### 🔘 **BasicButton**
@@ -178,7 +179,7 @@ BasicButton(
 
 ## 🎬 Example:
 
-<video src="videos/basic-button.mp4" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/f98901a7-3146-407c-a8ab-477b93a23b66" width="600" controls></video>
 
 ---
 
@@ -255,7 +256,7 @@ Stepper(
 
 ## 🎬 Example:
 
-<video src="videos/stepper.mp4" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/515dc174-632f-4076-89c3-b3b11cb5d2d0" width="600" controls></video>
 
 ---
 
@@ -287,7 +288,7 @@ OrderedList(
 
 ## 🎬 Example:
 
-<video src="videos/animated-list.mp4" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/515dc174-632f-4076-89c3-b3b11cb5d2d0" width="600" controls></video>
 
 ---
 
