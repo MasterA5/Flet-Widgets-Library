@@ -256,7 +256,7 @@ Stepper(
 
 ## 🎬 Example:
 
-<video src="https://github.com/user-attachments/assets/515dc174-632f-4076-89c3-b3b11cb5d2d0" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/ed364b39-dc4e-4a6e-ae27-a0b0976cc107" width="600" controls></video>
 
 ---
 
