@@ -57,7 +57,8 @@ class TypeWriter(Container):
             size=size,
             overflow=TextOverflow.ELLIPSIS,
             color=color,
-            weight=FontWeight.BOLD if bold else None
+            weight=FontWeight.BOLD if bold else None,
+            selectable=True # <- Make Text Selectable
         )
         self.running: bool = False
         self.loop: bool = loop
