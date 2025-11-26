@@ -7,7 +7,8 @@ from .AnimatedComponents import (
     SplitText,
     OrdenedList,
     UnorderedList,
-    ListItem
+    ListItem,
+    CircleCard
 )
 from .BasicComponents import (
     RestrictedInput,
@@ -35,5 +36,6 @@ __all__ = [
     "BasicButton",
     "Stepper",
     "RestrictedInputEvent",
-    "BaseValidator"
+    "BaseValidator",
+    "CircleCard"
 ]
