@@ -318,7 +318,7 @@ CircleCard(
 
 ## Example
 
-<video src="https://github.com/user-attachments/assets/51d86381-f140-4c42-9e48-e7a6ee000843" width="600" controls></video>
+<video src="https://github.com/user-attachments/assets/5981e03e-10ef-491f-87af-a5123e17dc0b" width="600" controls></video>
 
 ---
 
