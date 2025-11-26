@@ -290,17 +290,48 @@ OrderedList(
 
 <video src="https://github.com/user-attachments/assets/515dc174-632f-4076-89c3-b3b11cb5d2d0" width="600" controls></video>
 
+
+---
+
+### 📋 **Circle Card**
+
+Create A Circle Card With Animations And Dynamic Content
+
+```python
+CircleCard(
+    title: Control = None,
+    icon: Union[Icon, Icons] = Icons.random(),
+    icon_color: Colors = Colors.WHITE,
+    content: Control = None,
+    expanded_width: int = 500,
+    expanded_height: int = 200,
+    collapsed_width: int = 60,
+    bgcolor: Colors = Colors.GREY_900,
+    padding: int = 16,
+    on_click: Callable = None,
+    animation_duration: int = 300,
+    border_color: Colors = Colors.WHITE,
+    divider_color: Colors = Colors.WHITE,
+    animation_curve: AnimationCurve = AnimationCurve.DECELERATE
+)
+```
+
+## Example
+
+<video src="https://github.com/user-attachments/assets/51d86381-f140-4c42-9e48-e7a6ee000843" width="600" controls></video>
+
 ---
 
 ## 🧪 Tested On
 
-| Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText | BasicButton | RestrictedInput | Stepper | UnorderedList | OrderedList |
-|-----------|-------------|------------|---------------|------------|--------------|---------------|--------------|----------------|----------|----------------|--------------|
-| Android   | ✅          | ✅         | ✅            | ✅         | ✅           | ✅            | ✅           | ✅             | ✅       | ✅             | ✅           |
-| iOS       | ❌          | ❌         | ❌            | ❌         | ❌           | ❌            | ❌           | ❌             | ❌       | ❌             | ❌           |
-| Windows   | ✅          | ✅         | ✅            | ✅         | ✅           | ✅            | ✅           | ✅             | ✅       | ✅             | ✅           |
-| macOS     | ❌          | ❌         | ❌            | ❌         | ❌           | ❌            | ❌           | ❌             | ❌       | ❌             | ❌           |
-| Linux     | ❌          | ❌         | ❌            | ❌         | ❌           | ❌            | ❌           | ❌             | ❌       | ❌             | ❌           |
+| Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText | BasicButton | RestrictedInput | Stepper | UnorderedList | OrderedList | CircleCard |
+| -------- | ---------- | --------- | ------------ | --------- | ---------- | ------------ | ----------- | --------------- | ------- | ------------- | ----------- | ---------- |
+| Android  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅            | ✅           | ✅               | ✅       | ✅             | ✅           | ✅          |
+| iOS      | ❌          | ❌         | ❌            | ❌         | ❌          | ❌            | ❌           | ❌               | ❌       | ❌             | ❌           | ❌          |
+| Windows  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅            | ✅           | ✅               | ✅       | ✅             | ✅           | ✅          |
+| macOS    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌            | ❌           | ❌               | ❌       | ❌             | ❌           | ❌          |
+| Linux    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌            | ❌           | ❌               | ❌       | ❌             | ❌           | ❌          |
+
 
 
 ---
