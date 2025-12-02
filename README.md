@@ -7,6 +7,7 @@
 ## 🚀 Features
 
 ### 🌀 **Animated Components**
+
 - **BubbleText** → Bubble-style animated markdown text.
 - **TextFader** → Smooth fade-in/fade-out text transitions.
 - **TypeWriter** → Classic typing animation effect.
@@ -14,8 +15,11 @@
 - **HighlightRotatingText** → Dynamic rotating phrases inside a highlight box.
 - **ImageSlider** → Elegant image slider with transition effects ([inspired by DevSenate](https://github.com/navideveloper)).
 - **Animated Lists** → Stylish unordered and ordered animated list components.
+- **Circle Card** → Stylish and animated circle card
+- **Oauth Provider Buttons** → Stylish buttons with icons and animations from the most recognized OAuth providers
 
 ### 🧩 **Basic Components**
+
 - **BasicButton** → Animated button with hover and click effects.
 - **RestrictedInput** → Input with pattern validation rules.
 - **Stepper** → Modern stepper widget for multi-step forms.
@@ -185,7 +189,8 @@ BasicButton(
 
 ### ✏️ **RestrictedInput**
 
-Input field with validation based on regular expressions. 
+Input field with validation based on regular expressions.
+
 <p style="color:yellow">⚠ This widget is still under development, so its documentation is not yet complete and is subject to change.</p>
 
 ```python
@@ -201,6 +206,7 @@ RestrictedInput(
 ### 🧭 **Stepper**
 
 A customizable multi-step UI widget for modern forms.
+
 <p style="color:yellow">⚠ This widget is still under development, so some features may not work correctly.</p>
 <h3>For example:</h3>
 <ul>
@@ -290,7 +296,6 @@ OrderedList(
 
 <video src="https://github.com/user-attachments/assets/515dc174-632f-4076-89c3-b3b11cb5d2d0" width="600" controls></video>
 
-
 ---
 
 ### 📋 **Circle Card**
@@ -322,17 +327,38 @@ CircleCard(
 
 ---
 
+---
+
+### **OauthProvidersButtons**
+
+Create elegant and stylish buttons that are already created but modifiable and also include icons from some of the best-known OAuth providers.
+
+```python
+GithubButton(
+    self,
+    text: str = "Github Account",
+    on_click: Any = None,
+    on_hover: Any = None,
+    bgcolor: Colors = None,
+    text_color: Colors = Colors.WHITE
+)
+```
+
+By default, the buttons already have styles and animations; you only need to add custom events to give them real functionality, such as login, logout, and more.
+
+<video src="https://github.com/user-attachments/assets/60d68680-e691-465c-9d84-4287a00c38f9"></video>
+
+---
+
 ## 🧪 Tested On
 
-| Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText | BasicButton | RestrictedInput | Stepper | UnorderedList | OrderedList | CircleCard |
-| -------- | ---------- | --------- | ------------ | --------- | ---------- | ------------ | ----------- | --------------- | ------- | ------------- | ----------- | ---------- |
-| Android  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅            | ✅           | ✅               | ✅       | ✅             | ✅           | ✅          |
-| iOS      | ❌          | ❌         | ❌            | ❌         | ❌          | ❌            | ❌           | ❌               | ❌       | ❌             | ❌           | ❌          |
-| Windows  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅            | ✅           | ✅               | ✅       | ✅             | ✅           | ✅          |
-| macOS    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌            | ❌           | ❌               | ❌       | ❌             | ❌           | ❌          |
-| Linux    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌            | ❌           | ❌               | ❌       | ❌             | ❌           | ❌          |
-
-
+| Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText | BasicButton | RestrictedInput | Stepper | UnorderedList | OrderedList | CircleCard | OauthProvidersButtons |
+| -------- | ---------- | --------- | ------------ | --------- | ---------- | ------------ | ----------- | --------------- | ------- | ------------- | ----------- | ---------- | --------------------- |
+| Android  | ✅         | ✅        | ✅           | ✅        | ✅         | ✅           | ✅          | ✅              | ✅      | ✅            | ✅          | ✅         | ✅                    |
+| iOS      | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           | ❌          | ❌              | ❌      | ❌            | ❌          | ❌         | ❌                    |
+| Windows  | ✅         | ✅        | ✅           | ✅        | ✅         | ✅           | ✅          | ✅              | ✅      | ✅            | ✅          | ✅         | ✅                    |
+| macOS    | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           | ❌          | ❌              | ❌      | ❌            | ❌          | ❌         | ❌                    |
+| Linux    | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           | ❌          | ❌              | ❌      | ❌            | ❌          | ❌         | ❌                    |
 
 ---
 
