@@ -17,7 +17,7 @@
 - **Animated Lists** → Stylish unordered and ordered animated list components.
 - **Circle Card** → Stylish and animated circle card
 
-### **Oauth Provider Buttons** → Stylish buttons with icons and animations from the most recognized OAuth providers
+### 🎁 **Oauth Provider Buttons** → Stylish buttons with icons and animations from the most recognized OAuth providers
 
 ### 🧩 **Basic Components**
 
