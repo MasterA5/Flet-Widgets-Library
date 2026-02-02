@@ -27,6 +27,7 @@
 - **BasicButton** → Animated button with hover and click effects.
 - **RestrictedInput** → Input with pattern validation rules.
 - **Stepper** → Modern stepper widget for multi-step forms.
+- **TreeView** → Elegant Tree View Control
 
 ---
 
@@ -354,15 +355,86 @@ By default, the buttons already have styles and animations; you only need to add
 
 ---
 
+### **Tree View**
+
+Create a Elegant TreeView
+
+
+## Tree Node Class
+```python
+TreeNode(
+    id: str = None,
+    name: str = None, 
+    children: List['TreeNode'] = None, 
+    expanded: bool = False, 
+    data: Any = None,
+    icon: IconValue = None,
+    content: Any = None,
+    tags: List[str] = None,
+    metadata: Dict[str, Any] = None,
+    selectable: bool = True,
+    draggable: bool = False,
+    droppable: bool = False
+)
+```
+
+## Tree View Config Class
+```python
+TreeViewConfig(
+    default_folder_icon: IconValue = Icons.FOLDER,
+    default_file_icon: IconValue = Icons.INSERT_DRIVE_FILE,
+    indent_size: int = 20,
+    animation_duration: int = 300,
+    show_expand_icons: bool = True,
+    show_icons: bool = True,
+    show_context_menu: bool = True,
+    multi_select: bool = False,
+    allow_drag_drop: bool = False,
+    selection_color: str = Colors.BLUE_200,
+    selection_text_color: str = Colors.WHITE,
+    hover_color: str = Colors.TRANSPARENT,
+    custom_icons: Dict[str, IconValue] = None,
+    node_height: int = 32,
+)
+```
+
+## Tree View Class
+```python
+TreeView(
+    nodes: List[TreeNode] = None,
+    config: TreeViewConfig = None,
+    on_node_select: Optional[Callable[[TreeNode], None]] = None,
+    on_node_expand: Optional[Callable[[TreeNode], None]] = None,
+    on_node_collapse: Optional[Callable[[TreeNode], None]] = None,
+    on_rename: Optional[Callable[[TreeNode, str], bool]] = None,
+    on_delete: Optional[Callable[[TreeNode], bool]] = None,
+    on_properties: Optional[Callable[[TreeNode], None]] = None,
+    on_new_item: Optional[Callable[[TreeNode, str, str], Optional[TreeNode]]] = None,
+    on_drag_start: Optional[Callable[[TreeNode], bool]] = None,
+    on_drop: Optional[Callable[[TreeNode, TreeNode], bool]] = None,
+    on_double_click: Optional[Callable[[TreeNode], None]] = None,
+    on_right_click: Optional[Callable[[TreeNode, ControlEvent], None]] = None,
+    context_menu_items: List[Dict[str, Any]] = None,
+    custom_node_renderer: Optional[Callable[[TreeNode, 'TreeView'], Any]] = None,
+)
+```
+
+> [!IMPORTANT]
+> **Some of the features of this widget are under testing.**
+> * **Rename Folder Items** ❌
+> * **Advanced Callbacks** ❌
+> * **Properties** ❌
+---
+
 ## 🧪 Tested On
 
-| Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText | BasicButton | RestrictedInput | Stepper | UnorderedList | OrderedList | CircleCard | OauthProvidersButtons |
-| -------- | ---------- | --------- | ------------ | --------- | ---------- | ------------ | ----------- | --------------- | ------- | ------------- | ----------- | ---------- | --------------------- |
-| Android  | ✅         | ✅        | ✅           | ✅        | ✅         | ✅           | ✅          | ✅              | ✅      | ✅            | ✅          | ✅         | ✅                    |
-| iOS      | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           | ❌          | ❌              | ❌      | ❌            | ❌          | ❌         | ❌                    |
-| Windows  | ✅         | ✅        | ✅           | ✅        | ✅         | ✅           | ✅          | ✅              | ✅      | ✅            | ✅          | ✅         | ✅                    |
-| macOS    | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           | ❌          | ❌              | ❌      | ❌            | ❌          | ❌         | ❌                    |
-| Linux    | ❌         | ❌        | ❌           | ❌        | ❌         | ❌           | ❌          | ❌              | ❌      | ❌            | ❌          | ❌         | ❌                    |
+| Platform | TypeWriter | SplitText | ImagesSlider | TextFader | BubbleText | RotatingText | BasicButton | RestrictedInput | Stepper | UnorderedList | OrderedList | CircleCard | OauthProvidersButtons | TreeView |
+|----------|------------|-----------|--------------|-----------|------------|--------------|-------------|-----------------|---------|---------------|-------------|------------|-----------------------|----------|
+| Android  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅            | ✅           | ✅               | ✅       | ✅             | ✅           | ✅          | ✅                     | ✅        |
+| iOS      | ❌          | ❌         | ❌            | ❌         | ❌          | ❌            | ❌           | ❌               | ❌       | ❌             | ❌           | ❌          | ❌                     | ❌        |
+| Windows  | ✅          | ✅         | ✅            | ✅         | ✅          | ✅            | ✅           | ✅               | ✅       | ✅             | ✅           | ✅          | ✅                     | ✅        |
+| macOS    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌            | ❌           | ❌               | ❌       | ❌             | ❌           | ❌          | ❌                     | ❌        |
+| Linux    | ❌          | ❌         | ❌            | ❌         | ❌          | ❌            | ❌           | ❌               | ❌       | ❌             | ❌           | ❌          | ❌                     | ❌        |
 
 ---
 
