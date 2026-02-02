@@ -17,7 +17,10 @@ from .BasicComponents import (
     BasicButton,
     Stepper,
     RestrictedInputEvent,
-    BaseValidator
+    BaseValidator,
+    TreeNode,
+    TreeView,
+    TreeViewConfig
 )
 from .OauthProvidersButtons import (
     OauthProviderButton,
@@ -68,4 +71,7 @@ __all__ = [
     "CupertinoGithubButton",
     "CupertinoGoogleButton",
     "CupertinoAppleButton",
+    "TreeNode",
+    "TreeView",
+    "TreeViewConfig"
 ]
