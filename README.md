@@ -424,6 +424,9 @@ TreeView(
 > * **Rename Folder Items** ❌
 > * **Advanced Callbacks** ❌
 > * **Properties** ❌
+
+<video src="https://github.com/user-attachments/assets/f7a94cac-2d96-4648-99ae-c144c5d69ea0"></video>
+
 ---
 
 ## 🧪 Tested On
